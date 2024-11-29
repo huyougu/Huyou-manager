@@ -1,4 +1,4 @@
-import 'package:file_selector/file_selector.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 
@@ -15,8 +15,9 @@ class DashboardScreen extends StatelessWidget {
               child: TextButton(
                   child: Text("打开文件夹"),
                   onPressed: () async {
-                    final String? path = await getDirectoryPath();
-                    print(path);
+                    String? selectedDirectory =
+                        await FilePicker.platform.getDirectoryPath();
+                    print("result: $selectedDirectory");
                   }),
             )
           ],
